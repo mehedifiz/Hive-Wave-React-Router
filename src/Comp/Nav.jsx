@@ -6,7 +6,19 @@ const Nav = () => {
     const [theme, setTheme] = useState('light');
 
 
-   
+    useEffect(() => {
+        localStorage.setItem('theme', theme)
+        const localTheme = localStorage.getItem('theme')
+        document.querySelector('html').setAttribute('data-theme' , localTheme)    } , [])
+
+    const handleTheme = (e) => {
+        if (e.target.checked) {
+          setTheme("synthwave");
+        } else setTheme("light");
+        // console.log(theme);
+        
+    }
+
     
 
 
